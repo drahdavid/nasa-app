@@ -6,7 +6,6 @@ export const Photo = ({ data }) => {
 	return (
 		<Image
 			alt={`Photo ${data.rover.name} - ${data.rover.landing_date} - ${data.id}`}
-			key={data.id}
 			src={data.img_src}
 			width={500}
 			height={500}

@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 
 export const Pagination = ({ setCurrentPage, dataLength, currentPage }) => {
 	const pageNumbers = [];
@@ -6,6 +6,10 @@ export const Pagination = ({ setCurrentPage, dataLength, currentPage }) => {
 	for (let index = 1; index <= Math.ceil(dataLength / 25); index++) {
 		pageNumbers.push(index);
 	}
+
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}, [currentPage]);
 
 	return (
 		<div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
@@ -39,11 +43,13 @@ export const Pagination = ({ setCurrentPage, dataLength, currentPage }) => {
 										currentPage === page ? "500" : "700"
 									} px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500`}
 									onClick={() => setCurrentPage(page)}
+									key={page}
 								>
 									{page}
 								</button>
 							) : index === currentPage - 2 || index === currentPage + 2 ? (
 								<button
+									key={page}
 									aria-current="page"
 									className="relative z-10 inline-flex items-center bg-indigo-700 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-auto"
 								>
