@@ -7,8 +7,6 @@ export const Pagination = ({ setCurrentPage, dataLength, currentPage }) => {
 		pageNumbers.push(index);
 	}
 
-	console.dir("This is the data length");
-	console.dir(pageNumbers.length);
 	return (
 		<div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
 			<div className="sm:flex sm:flex-1 sm:items-center sm:justify-center">
@@ -27,7 +25,7 @@ export const Pagination = ({ setCurrentPage, dataLength, currentPage }) => {
 								←
 							</button>
 						</a>
-						{/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
+						{/* Current: "z-10 bg-indigo-500 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
 
 						{pageNumbers.map((page, index) => {
 							return index === 0 ||
@@ -37,7 +35,9 @@ export const Pagination = ({ setCurrentPage, dataLength, currentPage }) => {
 								index === currentPage ? (
 								<button
 									aria-current="page"
-									className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+									className={`relative z-10 inline-flex items-center bg-indigo-${
+										currentPage === page ? "500" : "700"
+									} px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500`}
 									onClick={() => setCurrentPage(page)}
 								>
 									{page}
@@ -45,7 +45,7 @@ export const Pagination = ({ setCurrentPage, dataLength, currentPage }) => {
 							) : index === currentPage - 2 || index === currentPage + 2 ? (
 								<button
 									aria-current="page"
-									className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-auto"
+									className="relative z-10 inline-flex items-center bg-indigo-700 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-auto"
 								>
 									...
 								</button>

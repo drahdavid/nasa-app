@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { Grid } from "../Grid";
 import { Pagination } from "../Pagination";
+import { Photo } from "../Photo";
 
 export const MainUi = ({ data }) => {
 	const [currentPage, setCurrentPage] = useState(1);
@@ -16,7 +17,11 @@ export const MainUi = ({ data }) => {
 
 	return (
 		<div>
-			<Grid data={currentPageData} />
+			<Grid>
+				{currentPageData.map((photoData) => (
+					<Photo data={photoData} />
+				))}
+			</Grid>
 			<Pagination
 				dataLength={data.photos.length}
 				setCurrentPage={setCurrentPage}
