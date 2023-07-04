@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useReducer } from "react";
 
-import { reducer, initialState } from "./utils";
+import { reducer, initialState } from "./reducers";
 
 import { Grid } from "../Grid";
 import { Pagination } from "../Pagination";
