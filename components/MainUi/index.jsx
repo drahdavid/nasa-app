@@ -1,15 +1,19 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
+
+import { reducer, initialState } from "./utils";
 
 import { Grid } from "../Grid";
 import { Pagination } from "../Pagination";
 import { Photo } from "../Photo";
 import { Select } from "../Select";
+import { CheckBoxLink } from "../CheckboxLink";
 
 export const MainUi = ({ data }) => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [camera, selectCamera] = useState("");
+	const [state, dispatch] = useReducer(reducer, initialState);
 
 	const itemsPerPage = 25;
 	const startIndex = (currentPage - 1) * itemsPerPage;
@@ -22,9 +26,28 @@ export const MainUi = ({ data }) => {
 	useEffect(() => {
 		setCurrentPage(1);
 	}, [camera]);
+
 	return (
 		<div>
-			<Select data={data} selectCamera={selectCamera} />
+			<div className="flex justify-around	align-middle items-center">
+				<div>
+					<Select data={data} selectCamera={selectCamera} />
+				</div>
+				<div>
+					<CheckBoxLink
+						label={"Search By Earth Date Day"}
+						dispatch={dispatch}
+						reducerState={state}
+						type={"updateCheckboxOne"}
+					/>
+					<CheckBoxLink
+						label={"Search By Sol Date (2890)"}
+						dispatch={dispatch}
+						reducerState={state}
+						type={"updateCheckboxTwo"}
+					/>
+				</div>
+			</div>
 			<Grid>
 				{!filteredData
 					? data.photos

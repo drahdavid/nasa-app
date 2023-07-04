@@ -29,7 +29,6 @@ export const Navigation = () => {
 									className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
 									href="/rover/curiosity"
 								>
-									<i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i>
 									<span className="ml-2">Curiosity Rover Photos</span>
 								</Link>
 							</li>
@@ -39,7 +38,6 @@ export const Navigation = () => {
 									className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
 									href="/rover/opportunity"
 								>
-									<i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i>
 									<span className="ml-2">Opportunity Rover Photos </span>
 								</Link>
 							</li>
@@ -49,7 +47,6 @@ export const Navigation = () => {
 									className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
 									href="/rover/spirit"
 								>
-									<i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i>
 									<span className="ml-2">Spirit Rover Photos</span>
 								</Link>
 							</li>

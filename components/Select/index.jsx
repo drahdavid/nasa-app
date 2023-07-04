@@ -28,7 +28,7 @@ export const Select = ({ data, selectCamera }) => {
 				<option value="" disabled selected>
 					Select your option
 				</option>
-				<option value="">All Cameras</option>
+				{cameras.length > 1 && <option value="">All Cameras</option>}
 				{cameras.map((camera) => (
 					<option key={camera}>{camera}</option>
 				))}
